@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Cl info</title>
+</head>
+<body>
+<div>
+    <p>Client <span th:text="${client.name}"></span>, welcome!</p>
+    <p>Your balance is <span th:text="${client.money}"></span></p>
+
+    <div th:switch="${orders}">
+        <h2 th:case="null">No Orders found!</h2>
+        <div th:case="*">
+            <h3>Orders</h3>
+            <a th:href="@{/clients/info/user_id={id}/update(id=${client.id})}">Update order info</a><br><br>
+            <table>
+                <tr>
+<!--                    <th>ID</th>-->
+<!--                    <th>Name</th>-->
+                    <th>Status</th>
+                    <th>Girls</th>
+                    <th>Date</th>
+                    <th>Hours</th>
+                    <th>Price</th>
+                </tr>
+                <th:block th:each="order : ${orders}">
+                    <tr>
+<!--                        <td th:text="${order.id}"></td>-->
+<!--                        <td th:text="${order.client.name}"></td>-->
+                        <td th:text="${order.status}"></td>
+                        <td th:text="${order.girls}"></td>
+                        <td th:text="${order.date}"></td>
+                        <td th:text="${order.hours}"></td>
+                        <td th:text="${order.price}"></td>
+                    </tr>
+                </th:block>
+            </table>
+        </div>
+    </div>
+    <br>
+    <a th:href="@{/clients/info/user_id={id}/balance(id=${client.id})}">Top up a balance</a><br>
+    <a th:href="@{/clients/info/user_id={id}/order/create(id=${client.id})}">Make order</a>
+
+
+
+</div>
+
+</body>
+</html>

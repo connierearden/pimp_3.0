@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update user</title>
+</head>
+<body>
+<!--<div>-->
+<!--    <form action="#" th:action="@{{id}/create(id=${client.id})}" th:object="${order}" method="post">-->
+<!--        <label for="name">Client name</label>-->
+<!--        <input readonly type="text" name="client" th:field="${client.name}" id="name">-->
+
+
+<!--        <label for="girls">Girls</label>-->
+<!--        <select multiple name="girls" id="girls" size="6" th:id="girls" required>-->
+<!--            <option disabled>Select roles</option>-->
+<!--            <option th:each="m : ${listOfGirls}" th:value="${m.id}" th:text="${m}"></option>-->
+<!--        </select>-->
+
+<!--        <input type="submit" value="Update client">-->
+<!--    </form>-->
+<!--</div>-->
+<p>Client name: <span th:text="${client.name}"></span></p>
+<div>
+    <form action="#" th:action="@{/clients/info/user_id={id}/order/create(id=${client.id})}" th:object="${order}" method="post">
+
+        <input readonly name="id" type="hidden">
+
+        <label for="girls">Girls</label>
+        <select multiple th:name="girls" id="girls" size="6" th:id="girls" required>
+            <option th:each="m : ${listOfGirls}" th:value="${m.id}" th:text="${m}"></option>
+        </select>
+
+        <label>Hours</label>
+        <input name="hours" type="number">
+
+        <label>Date</label>
+        <input name="date" type="datetime-local">
+
+        <input type="submit" value="Make order">
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update user</title>
+</head>
+<body>
+<div>
+    <form action="#" th:action="@{/clients/create}" th:object="${client}" method="post">
+
+        <label for="name">First name</label>
+        <input type="text" name="name" id="name" placeholder="First Name">
+
+        <input type="submit" value="Update client">
+    </form>
+</div>
+
+</body>
+</html>

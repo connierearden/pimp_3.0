@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Cl info</title>
+</head>
+<body>
+<div>
+    <p>Pimp <span th:text="${pimp.name}"></span>, welcome!</p>
+    <p>Your balance is <span th:text="${pimp.money}"></span></p>
+
+    <div th:switch="${pimpOrders}">
+        <h2 th:case="null">No Orders found!</h2>
+        <div th:case="*">
+            <h3>Orders</h3>
+<!--            <a th:href="@{/clients/info/user_id={id}/update(id=${client.id})}">Update order info</a><br><br>-->
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Created</th>
+                    <th>Name</th>
+                    <th>Girls</th>
+                    <th>Date</th>
+                    <th>Hours</th>
+                    <th>Status</th>
+                    <th>Price</th>
+                    <th>Processed</th>
+                </tr>
+                <th:block th:each="order : ${pimpOrders}">
+                    <tr>
+                        <td th:text="${order.id}"></td>
+                        <td th:text="${order.created}"></td>
+                        <td th:text="${order.client.name}"></td>
+                        <td th:text="${order.girls}"></td>
+                        <td th:text="${order.date}"></td>
+                        <td th:text="${order.hours}"></td>
+                        <td th:text="${order.status}"></td>
+                        <td th:text="${order.price}"></td>
+                        <td th:text="${order.isProcessed}"></td>
+                        <td><a th:href="@{/pimps/info/pimp_id={pId}/order/order_id={oId} (pId=${pimp.id},oId=${order.id})}">Render order</a></td>
+
+                    </tr>
+                </th:block>
+            </table>
+        </div>
+    </div>
+<!--    <p>Balance for today: <span th:text="${todayMoney}"></span> рублей.</p>-->
+
+    <div th:switch="${pimpGirls}">
+        <h2 th:case="null">No Girls found!</h2>
+        <div th:case="*">
+            <h3>Girls</h3>
+            <!--            <a th:href="@{/clients/info/user_id={id}/update(id=${client.id})}">Update order info</a><br><br>-->
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>On order</th>
+                    <th>Age</th>
+                    <th>Weight</th>
+                    <th>Growth</th>
+                    <th>BreastSize</th>
+                    <th>Wallet</th>
+                </tr>
+                <th:block th:each="g : ${pimpGirls}">
+                    <tr>
+                        <td th:text="${g.name}"></td>
+                        <td th:text="${g.isRent}"></td>
+                        <td th:text="${g.age}"></td>
+                        <td th:text="${g.weight}"></td>
+                        <td th:text="${g.growth}"></td>
+                        <td th:text="${g.breastSize}"></td>
+                        <td th:text="${g.wallet}"></td>
+                    </tr>
+                </th:block>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>

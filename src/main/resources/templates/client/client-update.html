@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Update user</title>
+</head>
+<body>
+<div>
+  <form action="#" th:action="@{/clients/update}" th:object="${client}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+
+    <label for="name">First name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="First Name">
+
+    <label for="money">Age</label>
+    <input type="number" th:field="*{money}" id="money" placeholder="Age">
+
+<!--    <label for="magazines">Magazines</label>-->
+<!--    <select multiple th:name="magazines"  id="magazines" size="6" th:id="magazines" required>-->
+<!--      <option disabled>Select roles</option>-->
+<!--      <option th:each="m : ${allMagazines}" th:value="${m.id}" th:text="${m}"></option>-->
+<!--    </select>-->
+
+    <input type="submit" value="Update client">
+  </form>
+</div>
+
+</body>
+</html>

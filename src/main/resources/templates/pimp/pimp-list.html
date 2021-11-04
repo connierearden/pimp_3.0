@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Pimps</title>
+</head>
+<body>
+<div th:switch="${pimps}">
+    <h2 th:case="null">No pimp found!</h2>
+    <div th:case="*">
+        <h2>Pimps</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Girls</th>
+                <th>Money</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="p : ${pimps}">
+                <td th:text="${p.id}"></td>
+                <td th:text="${p.name}"></td>
+                <td th:text="${p.escortGirlList}"></td>
+                <td th:text="${p.money}"></td>
+                <td><a th:href="@{pimps/info/pimp_id={id}(id=${p.id})}">Info</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/pimps/create">Create pimp</a></p>
+</div>
+</body>
+</html>

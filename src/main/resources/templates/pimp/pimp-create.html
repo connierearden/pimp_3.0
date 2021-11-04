@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create pimp</title>
+</head>
+<body>
+<div>
+    <form action="#" th:action="@{/pimps/create}" th:object="${pimp}" method="post">
+
+        <label for="name">First name</label>
+        <input type="text" name="name" id="name" placeholder="Name">
+
+        <input type="submit" value="Update pimp">
+    </form>
+</div>
+
+</body>
+</html>

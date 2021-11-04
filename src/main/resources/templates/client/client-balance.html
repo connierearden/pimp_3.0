@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update user</title>
+</head>
+<body>
+<p>Уважаемый <span th:text="${client.name}"></span>, пожалуйста, пополните баланс!</p>
+<div>
+    <form action="#" th:action="@{/clients/info/user_id={id}/balance/update(id=${client.id})}" th:object="${moneyForDifferentOperation}" method="post">
+        <input name="money" type="number">
+
+        <input type="submit" value="Refill">
+    </form>
+</div>
+
+</body>
+</html>

@@ -17,7 +17,6 @@
             <table>
                 <tr>
                     <th>ID</th>
-                    <th>Created</th>
                     <th>Name</th>
                     <th>Girls</th>
                     <th>Date</th>
@@ -29,7 +28,6 @@
                 <th:block th:each="order : ${pimpOrders}">
                     <tr>
                         <td th:text="${order.id}"></td>
-                        <td th:text="${order.created}"></td>
                         <td th:text="${order.client.name}"></td>
                         <td th:text="${order.girls}"></td>
                         <td th:text="${order.date}"></td>

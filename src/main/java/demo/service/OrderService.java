@@ -47,7 +47,6 @@ public class OrderService {
         Order order = orderRepository.getById(orderId);
         Client client = clientRepository.getById(clientId);
         order.setClient(client);
-        order.setCreated(LocalDate.now());
 
         LocalDateTime date = order.getDate();
         LocalDateTime dateWithOrderPeriod = date.plusHours(order.getHours());

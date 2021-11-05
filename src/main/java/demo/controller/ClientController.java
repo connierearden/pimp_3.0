@@ -98,7 +98,6 @@ public class ClientController {
             clientService.makeSuccessfulTransaction(clientId, price);
             for (EscortGirl girl : order.getGirls()) {
                 Order newOrder = new Order();
-                newOrder.setCreated(LocalDate.now());
                 newOrder.setHours(order.getHours());
                 newOrder.setDate(order.getDate());
                 newOrder.setGirls(List.of(girl));
